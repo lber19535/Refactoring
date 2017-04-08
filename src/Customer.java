@@ -14,7 +14,7 @@ public class Customer {
     }
 
     public void addRental(Rental ren) {
-
+        rentals.add(ren);
     }
 
     public String getName() {

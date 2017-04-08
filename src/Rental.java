@@ -19,11 +19,11 @@ public class Rental {
         return _dayRented;
     }
 
-    int getFreqRenterPoints() {
-        if ((getMovie().getPriceCode()) == Movie.NEW_RELEASE && getDayRented() > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
+    public double getCharge(){
+        return _movie.getCharge(_dayRented);
+    }
+
+    public int getFreqRenterPoints(){
+        return _movie.getFreqRenterPoints(_dayRented);
     }
 }

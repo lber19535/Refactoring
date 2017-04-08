@@ -31,9 +31,9 @@ public class Customer {
 
             Rental each = (Rental) rens.nextElement();
 
-            freqRenterPoints += each.getFreqRenterPoints();
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each._movie.getCharge(each)) + "\n";
-            totalAmount += each._movie.getCharge(each);
+            freqRenterPoints += each._movie.getFreqRenterPoints(each);
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
+            totalAmount += each.getCharge();
         }
 
         result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
@@ -46,7 +46,7 @@ public class Customer {
         String result = "<h1>Rentals for <em>" + getName() + "</em><h1><p>\n";
         while (elements.hasMoreElements()) {
             Rental each = (Rental) elements.nextElement();
-            result += each.getMovie().getTitle() + ": " + each._movie.getCharge(each) + "<br>\n";
+            result += each.getMovie().getTitle() + ": " + each.getCharge() + "<br>\n";
         }
 
         result += "<p>You owe<em>" + getTotalCharge() + "</em><p>\n";
@@ -59,7 +59,7 @@ public class Customer {
         double result = 0;
         while (elements.hasMoreElements()) {
             Rental each = (Rental) elements.nextElement();
-            result += each._movie.getCharge(each);
+            result += each.getCharge();
         }
         return result;
     }
@@ -69,7 +69,7 @@ public class Customer {
         int result = 0;
         while (elements.hasMoreElements()) {
             Rental each = (Rental) elements.nextElement();
-            result += each.getFreqRenterPoints();
+            result += each._movie.getFreqRenterPoints(each);
         }
         return result;
     }

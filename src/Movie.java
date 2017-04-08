@@ -27,13 +27,13 @@ public class Movie {
         return _title;
     }
 
-    double getCharge(Rental rental) {
+    double getCharge(int rentalDays) {
         double result = 0;
         switch (getPriceCode()) {
             case REGULAR:
                 result += 2;
-                if (rental.getDayRented() > 2) {
-                    result += (rental.getDayRented() - 2) * 1.5;
+                if (rentalDays > 2) {
+                    result += (rentalDays - 2) * 1.5;
                 }
                 break;
             case NEW_RELEASE:
@@ -41,11 +41,19 @@ public class Movie {
                 break;
             case CHILDRENS:
                 result += 1.5;
-                if (rental.getDayRented() > 3) {
-                    result += (rental.getDayRented() - 3) * 1.5;
+                if (rentalDays > 3) {
+                    result += (rentalDays - 3) * 1.5;
                 }
                 break;
         }
         return result;
+    }
+
+    int getFreqRenterPoints(int rentalDays) {
+        if ((getPriceCode()) == NEW_RELEASE && rentalDays > 1) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
 }

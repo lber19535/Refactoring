@@ -19,6 +19,10 @@ public class Movie {
         return price.getPriceCode();
     }
 
+    public Price getPrice(){
+        return price;
+    }
+
     public void setPriceCode(int _priceCode) {
         switch (_priceCode) {
             case REGULAR:
@@ -36,11 +40,4 @@ public class Movie {
         return _title;
     }
 
-    int getFreqRenterPoints(int rentalDays) {
-        if ((getPriceCode()) == NEW_RELEASE && rentalDays > 1) {
-            return 2;
-        } else {
-            return 1;
-        }
-    }
 }

@@ -31,7 +31,7 @@ public class Customer {
 
             Rental each = (Rental) rens.nextElement();
 
-            freqRenterPoints += each._movie.getFreqRenterPoints(each);
+            freqRenterPoints += each._movie.getPrice().getFreqRenterPoints(each.getDayRented());
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
             totalAmount += each.getCharge();
         }
@@ -69,7 +69,7 @@ public class Customer {
         int result = 0;
         while (elements.hasMoreElements()) {
             Rental each = (Rental) elements.nextElement();
-            result += each._movie.getFreqRenterPoints(each);
+            result += each._movie.price.getFreqRenterPoints(each.getDayRented());
         }
         return result;
     }

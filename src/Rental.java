@@ -19,11 +19,11 @@ public class Rental {
         return _dayRented;
     }
 
-    public double getCharge(){
-        return _movie.price.getCharge(_dayRented);
+    public double getCharge() {
+        return _movie.getPrice().getCharge(_dayRented);
     }
 
-    public int getFreqRenterPoints(){
-        return _movie.getFreqRenterPoints(_dayRented);
+    public int getFreqRenterPoints() {
+        return _movie.price.getFreqRenterPoints(_dayRented);
     }
 }
